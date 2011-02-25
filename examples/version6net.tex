@@ -1,0 +1,58 @@
+% Template for gc2latex
+% by Cougar <cougar@random.ee> based on Stefan Tomanek <stefan@pico.ruhr.de>
+% http://stefans.datenbruch.de/gnucash/gc2latex.shtml
+
+\documentclass[paper=a4, pagesize, DIN, pagenumber=false, parskip=half, %
+               firsthead=false, backaddress=false, subject=underlined, foldmarks=false, %
+               fromalign=off, fromphone=false, %
+               fromemail=false, fromurl=false, %
+               fromlogo=false, fromrule=true]{scrlttr2}
+
+% \usepackage[latin1]{inputenc}
+% \usepackage{german}
+\usepackage[T1]{fontenc}
+\usepackage[estonian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{longtable}
+\usepackage[a4paper]{geometry}
+\RequirePackage{graphicx}
+
+\setkomavar{fromname}{OÜ version6.net}
+\setkomavar{fromaddress}{Koidu 18\\69402 Abja-Paluoja\\Viljandimaa}
+\setkomavar{fromphone}{+372 5092042}
+\setkomavar{fromemail}{version6.net@gmail.com}
+\setkomavar{fromurl}{}
+\setkomavar{signature}{}
+\setkomavar{fromlogo}{\includegraphics*[width=6cm]{musterfirma.eps}}
+\setkomavar{frombank}{A/a: 221051670462\\Pank: Swedbank\\S.W.I.F.T.: HABAEE2X}
+\setkomavar{subject}{Arve nr. __GNUCASH-INVOICE-ID__}
+\setkomavar{date}{__GNUCASH-POSTING-DATE__}
+
+\begin{document}
+
+\firstfoot{ {\hrulefill\\}%
+  \fontsize{9}{10.5}\selectfont%
+  \parbox[t]{0.3\textwidth}{%
+    \usekomavar{fromname}\\
+    \usekomavar{fromaddress}}%
+  \hfill%
+  \parbox[t]{0.35\textwidth}{Telefon: \usekomavar{fromphone}\\E-mail: \usekomavar{fromemail}\\Reg.nr.: 12054879}%
+  \hfill%
+  \parbox[t]{0.25\textwidth}{\usekomavar{fromname}\\\usekomavar{frombank}}%
+}
+
+\begin{letter}{__GNUCASH-CUSTOMER__}
+
+\opening{}
+
+__GNUCASH-TABLE__
+Hinnad ei sisalda käibemaksu, sest firma pole käibemaksukohuslane
+\\
+\\
+
+\closing{Arve palume tasuda 14 päeva jooksul}
+
+\end{letter}
+
+\end{document}
+
