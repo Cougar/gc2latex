@@ -62,12 +62,12 @@ sub createLaTeXTable($) {
         $action =~ s/Hours/tund/;
         $text .= l_enc( $action )."&";
         $text .= $e->getQuantity()."&";
-        $text .= sprintf("%0.2f", $e->getNetPrice())."&";
-        $text .= sprintf("%0.2f", int($e->getNetSum() * 100 + 0.5) / 100).' \\\\'."\n";
+        $text .= sprintf("%0.2f €", $e->getNetPrice())."&";
+        $text .= sprintf("%0.2f €", int($e->getNetSum() * 100 + 0.5) / 100).' \\\\'."\n";
         $text .= '\hline'."\n";
     }
     $text .= '\hline'."\n";
-    $text .= '\multicolumn{5}{r|}{Summa kokku} &'.sprintf("%0.2f", int($invoice->getNetSum() * 100 + 0.5) / 100).' \\\\'."\n";
+    $text .= '\multicolumn{5}{r|}{Summa kokku} &'.sprintf("%0.2f €", int($invoice->getNetSum() * 100 + 0.5) / 100).' \\\\'."\n";
     $text .= '\multicolumn{5}{r|}{} &('.sprintf("%0.2f", $invoice->getNetSum() * 15.6466).' '.'kr)'.'\\\\'."\n";
     $text .= '\end{longtable}'."\n";
     return $text;
