@@ -40,6 +40,9 @@ sub fillInfos($$) {
 
         if (defined $_->child("invoice:posted")) {
             $self->{info}{posted} = str2time( $_->child("invoice:posted")->child("ts:date")->value() );
+        }
+        if (defined $_->child("invoice:date-posted")) {
+            $self->{info}{posted} = str2time( $_->child("invoice:date-posted")->child("ts:date")->value() );
         } 
 	
         if ( $_->child("invoice:owner")->child("owner:type")->value() eq "gncJob" ) {
