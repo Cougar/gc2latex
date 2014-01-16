@@ -60,6 +60,7 @@ sub createLaTeXTable($) {
         $text .= l_enc( $e->getDescription() )."&";
         my $action =  $e->getAction();
         $action =~ s/Hours/tund/;
+        $action =~ s/Project/projekt/;
         $text .= l_enc( $action )."&";
         $text .= $e->getQuantity()."&";
         $text .= sprintf("%0.2f €", $e->getNetPrice())."&";
