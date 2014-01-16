@@ -36,10 +36,17 @@ sub fillInfo($$) {
 	     $self->{info}{quantity} = $1/$2;
 	}
 
-	$self->{info}{price} = 0;
+	$self->{info}{unitprice} = 0;
 	if ($entry->child("entry:i-price")->value() =~ /(\d+)\/(\d+)/) {
-	    $self->{info}{price} = $1/$2;
+	    $self->{info}{unitprice} = $1/$2;
 	}
+
+	$self->{info}{discount} = 0;
+	if ($entry->child("entry:i-discount") && $entry->child("entry:i-discount")->value() =~ /(\d+)\/(\d+)/) {
+	    $self->{info}{discount} = $1/$2;
+	}
+
+	$self->{info}{price} = $self->{info}{unitprice} * (1 - $self->{info}{discount}/100);
 
 	$self->{info}{taxincluded} = $entry->child("entry:i-taxincluded")->value();
 	
@@ -57,7 +64,9 @@ sub getDate ($) { return $_[0]->{info}{date}; }
 sub getDescription ($) { return $_[0]->{info}{description}; }
 sub getAction ($) { return $_[0]->{info}{action}; }
 sub getQuantity ($) { return $_[0]->{info}{quantity}; }
+sub getUnitPrice ($) { return $_[0]->{info}{unitprice}; }
 sub getPrice ($) { return $_[0]->{info}{price}; }
+sub getDiscount ($) { return $_[0]->{info}{discount}; }
 sub isTaxIncluded ($) { return $_[0]->{info}{taxincluded}; }
 
 sub getNetPrice ($) {
