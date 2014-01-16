@@ -1,6 +1,6 @@
 #!/bin/sh
 
-GNUCASHFILE="/home/cougar/gc/version6net"
+GNUCASHFILE="/home/cougar/gc/v6-2012.gnucash"
 TEMPLATE="../examples/version6net.tex"
 INVOICEDIR="/home/cougar/Doc/version6.net/arved"
 
