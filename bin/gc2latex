@@ -69,7 +69,6 @@ sub createLaTeXTable($) {
     }
     $text .= '\hline'."\n";
     $text .= '\multicolumn{5}{r|}{Summa kokku} &'.sprintf("%0.2f €", int($invoice->getNetSum() * 100 + 0.5) / 100).' \\\\'."\n";
-    $text .= '\multicolumn{5}{r|}{} &('.sprintf("%0.2f", $invoice->getNetSum() * 15.6466).' '.'kr)'.'\\\\'."\n";
     $text .= '\end{longtable}'."\n";
     return $text;
 }
